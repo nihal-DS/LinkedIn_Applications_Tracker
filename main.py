@@ -1,7 +1,6 @@
 import imaplib
 import email
 import yaml
-import pickle
 import re
 from datetime import date
 import pandas as pd
