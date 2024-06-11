@@ -32,11 +32,11 @@ for num in mail_id_list:
     typ, data = my_mail.fetch(num, "(RFC822)")
     msgs.append(data)
 
-def df_extractor(msgs):
+def df_extractor(msgs, your_name):                         # Mention your first name, same as LinkedIn first name
     date_col=[]; company_col=[]; role_col=[]; link_col=[]
     for e in msgs:
         e = email.message_from_bytes(e[0][1])
-        if re.search("Nihal, your application was sent to", e['subject']):
+        if re.search(f"{your_name}, your application was sent to", e['subject']):
             date = e['date']
             for body in e.walk():
                 if body.get_content_type() == "text/plain":
